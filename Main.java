@@ -15,13 +15,19 @@ public class Main {
         // Creazione e popolamento della matrice
         int[][] matrix = new int[3][3];
         Random random = new Random();
-        // COMPLETARE IL CODICE
-
-      
-
+	    for(int i=0;i<3;i++){
+	        for(int j=0;j<3;j++){
+	            matrix[i][j]=(int)(Math.random()*10+1);
+	        }
+	    }
         // Stampa della matrice
         System.out.println("Matrice:");
-        // COMPLETARE IL CODICE
+        for(int i=0;i<3;i++){
+	        for(int j=0;j<3;j++){
+	            System.out.print(matrix[i][j]+" ");
+	        }
+	        System.out.println("");
+	    }
 
 
         // Calcolo della somma degli elementi
@@ -35,17 +41,23 @@ public class Main {
 
     public static int calculateSum(int[][] matrix) {
         int sum = 0;
-   
-// COMPLETARE IL CODICE
-      
+        for(int i=0;i<3;i++){
+	        for(int j=0;j<3;j++){
+	            sum+=matrix[i][j];
+	        }
+	    }
         return sum;
     }
 
     public static int findMax(int[][] matrix) {
         int max = matrix[0][0];
-
-// COMPLETARE IL CODICE
-      
+        for(int i=0;i<3;i++){
+	        for(int j=1;j<3;j++){
+	            if(matrix[i][j]>max)
+	            max=matrix[i][j];
+	        }
+	    }
+	    System.out.println(max);
         return max;
     }
 }
