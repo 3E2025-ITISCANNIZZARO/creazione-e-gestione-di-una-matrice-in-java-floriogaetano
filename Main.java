@@ -1,4 +1,4 @@
-// Esercizio: Lavorare con le Matrici in Java
+\// Esercizio: Lavorare con le Matrici in Java
 //
 // 1. Creare una matrice 3x3 di numeri interi.
 // 2. Popolare la matrice con valori casuali compresi tra 1 e 100.
@@ -33,10 +33,16 @@ public class Main {
         // Calcolo della somma degli elementi
         int sum = calculateSum(matrix);
         System.out.println("Somma degli elementi: " + sum);
+	System.out.println("Le coordinate sono: "+posx+","+posy)
 
         // Ricerca del valore massimo
         int max = findMax(matrix);
         System.out.println("Valore massimo: " + max);
+	// Ricerca numero di pari e dispari
+	int pari=contNump(matrix);
+	System.out.println("Nella matrice ci sono: "+pari+" numeri pari");
+	int dispari=contNumd(matrix);
+	System.out.println("Nella matrice ci sono: "+dispari+" numeri dispari");
     }
 
     public static int calculateSum(int[][] matrix) {
@@ -51,13 +57,39 @@ public class Main {
 
     public static int findMax(int[][] matrix) {
         int max = matrix[0][0];
+	int posx=0;
+	int posy=0;
         for(int i=0;i<3;i++){
 	        for(int j=1;j<3;j++){
-	            if(matrix[i][j]>max)
-	            max=matrix[i][j];
+	            if(matrix[i][j]>max){
+			    max=matrix[i][j];
+			    posx=i;
+			    posy=j;
+		    }
 	        }
 	    }
-	    System.out.println(max);
         return max;
     }
+	public static int contNump(int[][] matrix) {
+		int contp=0;
+		for(int i=0; i<3; i++) {
+			for(int j=0; j<3; j++) {
+				if(matrix[i][j]%2==0) {
+					contp+=1;
+				}
+			}
+		}
+		return contp;
+	}
+	public static int contNumd(int[][] matrix) {
+		int contd=0;
+		for(int i=0; i<3; i++) {
+			for(int j=0; j<3; j++) {
+				if(matrix[i][j]%2!=0) {
+					contd+=1;
+				}
+			}
+		}
+		return contd;
+	}
 }
