@@ -14,7 +14,6 @@ public class Main {
     public static void main(String[] args) {
         // Creazione e popolamento della matrice
         int[][] matrix = new int[3][3];
-        Random random = new Random();
 	    for(int i=0;i<3;i++){
 	        for(int j=0;j<3;j++){
 	            matrix[i][j]=(int)(Math.random()*10+1);
@@ -33,11 +32,10 @@ public class Main {
         // Calcolo della somma degli elementi
         int sum = calculateSum(matrix);
         System.out.println("Somma degli elementi: " + sum);
-	System.out.println("Le coordinate sono: "+posx+","+posy)
 
         // Ricerca del valore massimo
         int max = findMax(matrix);
-        System.out.println("Valore massimo: " + max);
+        System.out.println("Valore massimo: " +maxx[0]+ " e le coordinate sono: "+maxx[1]+","+max[2]);
 	// Ricerca numero di pari e dispari
 	int pari=contNump(matrix);
 	System.out.println("Nella matrice ci sono: "+pari+" numeri pari");
@@ -67,8 +65,12 @@ public class Main {
 			    posy=j;
 		    }
 	        }
+		int maxx[] = new int[3];
+		maxx[0] = max;
+		maxx[1] = posx;
+		maxx[2] = posy;
 	    }
-        return max;
+        return maxx;
     }
 	public static int contNump(int[][] matrix) {
 		int contp=0;
